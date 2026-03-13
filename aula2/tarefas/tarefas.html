@@ -4,29 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarefas</title>
+    <link rel="stylesheet" href="tarefas.css">
 </head>
 <body>
     <h1>Tarefas</h1>
     <form>
-        <label for="descricao">Descrição</label>
-        <input type="text" id="descricao" placeholder="Digite uma tarefa">
-        <button type="submit">Adicionar</button>
+        <label for="tarefa">Descrição</label>
+        <input type="text" id="tarefa" placeholder="Digite uma tarefa">
+        <button id="adicionar">Adicionar</button>
+        <button id="limpar">Limpar</button>
     </form>
     <ol id="lista-tarefas"></ol>
 
-    <script>
-        const form = document.querySelector("form");
-        const listaTarefas = document.querySelector("#lista-tarefas");
-        const descricaoInput = document.querySelector("#descricao");
-
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const tarefa = descricaoInput.value;
-            const li = document.createElement("li");
-            li.textContent = tarefa;
-            listaTarefas.appendChild(li);
-            descricaoInput.value = "";
-        });
-    </script>
+    <script src="tarefas.js"></script>
 </body>
 </html>
