@@ -9,10 +9,15 @@
 </head>
 <body>
     <h1>Animes</h1>
+    <form>
+        <label for="pesquisa" accesskey="P">Pesquisar:</label>
+        <input type="text" id="pesquisa">
+        <button id="pesquisar" type="button">Pesquisar</button>
+    </form>
     <table>
         <thead>
             <tr>
-                <th>Nome</th>
+                <th id="ordenar" data-ordem="crescente">Nome</th>
                 <th>Genero</th>
             </tr>
         </thead>
@@ -20,5 +25,10 @@
                 
         </tbody>
     </table>
+    <div>
+        <button id="adicionar">adicionar</button>
+        <button id="remover">remover</button>
+        <button id="alterar">alterar</button>
+    </div>
 </body>
 </html>
