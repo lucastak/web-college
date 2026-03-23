@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <h1>Tarefas</h1>
+    <menu>
+        <button id="btnAdicionar">Adicionar</button>
+        <button id="btnEditar">Editar</button>
+        <button id="btnExcluir">Excluir</button>
+    </menu>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Feita</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+
+    <dialog id="dialog">
+        <form id="formAdicionar">
+            <label for="descricao">Descrição</label>
+            <input type="text" id="descricao" name="descricao">
+            <label for="feita">Feita</label>
+            <input type="checkbox" id="feita" name="feita">
+            <button type="submit">Salvar</button>
+            <button id="btnCancelar" type="button">Cancelar</button>
+        </form>
+    </dialog>
+
+    <dialog id="dialogEditar">
+        <form id="formEditar">
+            <label for="descricaoEditar">Descrição</label>
+            <input type="text" id="descricaoEditar" name="descricaoEditar">
+            <label for="feitaEditar">Feita</label>
+            <input type="checkbox" id="feitaEditar" name="feitaEditar">
+            <button type="submit">Salvar</button>
+            <button id="btnCancelarEditar" type="button">Cancelar</button>
+        </form>
+    </dialog>
+
+    <script src="src/tarefas.js"></script>
+</body>
+</html>
