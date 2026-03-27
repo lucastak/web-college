@@ -1,0 +1,25 @@
+EXERCÍCIOS
+----------
+
+Uma loja que vende veículos necessita realizar o controle de seus
+clientes, que deixam os veículos para venda em comodato.
+
+1) Crie uma lista de veículos, contendo:
+
+- Nome do cliente (título)
+- Telefone (subtítulo)
+- Descrição do veículo (corpo)
+- Placa do veículo (badge)
+
+Os veículos devem ser carregados de uma chave "veiculos" de localStorage,
+como um array de objetos.
+
+Crie um index.js para ser o ponto de entrada da aplicação.
+
+Implemente a listagem em  listagem.js.
+Os veículos devem ser listados como cards.
+
+2) Crie um menu com um botão Adicionar, que mostre uma tela de cadastro
+   de veículo, com os mesmos dados indicados anteriormente.
+   Ao cadastrar um veículo, ele deve ser adicionado, como um CARD, à
+   listagem de veículos e atualizado no localStorage.
