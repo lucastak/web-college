@@ -50,12 +50,32 @@ function selecionarTarefa(tr){
 }
 
 // --------------------------------------------- //
-//adicionar
-function mostrarFormularioAdicionar(){
-    document.getElementById("dialog").showModal();
+// --------------------------------------------- //
+// Formulário (Adicionar e Editar)
+let tarefaAtualId = null;
+
+function mostrarFormulario(id = null){
+    tarefaAtualId = id;
+    const form = document.getElementById("formTarefa");
+    
+    if (id) {
+        const tarefa = tarefas.find(t => t.id == id);
+        document.getElementById("descricao").value = tarefa.descricao;
+        document.getElementById("feita").checked = tarefa.feita;
+    } else {
+        form.reset();
+    }
+
+    document.getElementById("dialogTarefa").showModal();
 }
 
-function adicionarTarefa(event){
+function fecharFormulario(){
+    document.getElementById("dialogTarefa").close();
+    document.getElementById("formTarefa").reset();
+    tarefaAtualId = null;
+}
+
+function salvarTarefa(event){
     event.preventDefault();
 
     const descricao = document.getElementById("descricao").value;
@@ -66,26 +86,21 @@ function adicionarTarefa(event){
         return;
     }
 
-    const novaTarefa = {
-        id: tarefas.length > 0 ? Math.max(...tarefas.map(t => t.id)) + 1 : 1,
-        descricao: descricao,
-        feita: feita
-    };
+    if (tarefaAtualId) { // Editando
+        const tarefa = tarefas.find(t => t.id == tarefaAtualId);
+        tarefa.descricao = descricao;
+        tarefa.feita = feita;
+    } else { // Adicionando
+        const novaTarefa = {
+            id: tarefas.length > 0 ? Math.max(...tarefas.map(t => t.id)) + 1 : 1,
+            descricao: descricao,
+            feita: feita
+        };
+        tarefas.push(novaTarefa);
+    }
 
-    tarefas.push(novaTarefa);
     desenharTarefas(tarefas);
-    fecharFormularioAdicionar();
-}
-
-function fecharFormularioAdicionar(){
-    document.getElementById("dialog").close();
-    document.getElementById("formAdicionar").reset();
-}
-
-// --------------------------------------------- //
-//editar
-function mostrarFormularioEditar(){
-    document.getElementById("dialogEditar").showModal();
+    fecharFormulario();
 }
 
 function handleClickEditar(event){
@@ -98,33 +113,7 @@ function handleClickEditar(event){
     }
 
     const id = trSelecionado.dataset.id;
-    const tarefa = tarefas.find(t => t.id == id);
-    
-    document.getElementById("descricaoEditar").value = tarefa.descricao;
-    document.getElementById("feitaEditar").checked = tarefa.feita;
-    
-    mostrarFormularioEditar();
-}
-
-function salvarEdicao(event){
-    event.preventDefault();
-    const trSelecionado = document.querySelector(".selecionado");
-    const id = trSelecionado.dataset.id;
-    const tarefa = tarefas.find(t => t.id == id);
-
-    const descricao = document.getElementById("descricaoEditar").value;
-    const feita = document.getElementById("feitaEditar").checked;
-
-    tarefa.descricao = descricao;
-    tarefa.feita = feita;
-
-    desenharTarefas(tarefas);
-    fecharFormularioEditar();
-}
-
-function fecharFormularioEditar(){
-    document.getElementById("dialogEditar").close();
-    document.getElementById("formEditar").reset();
+    mostrarFormulario(id);
 }
 
 // --------------------------------------------- //
@@ -145,20 +134,31 @@ function handleClickExcluir(event){
 document.addEventListener("DOMContentLoaded", () => {
     desenharTarefas(tarefas);
 
-    document.getElementById("btnAdicionar").addEventListener("click", mostrarFormularioAdicionar);
-    document.getElementById("btnCancelar").addEventListener("click", fecharFormularioAdicionar);
+    document.getElementById("btnAdicionar").addEventListener("click", () => mostrarFormulario());
+    document.getElementById("btnCancelar").addEventListener("click", fecharFormulario);
     document.getElementById("btnExcluir").addEventListener("click", handleClickExcluir);
-    document.getElementById("formAdicionar").addEventListener("submit", adicionarTarefa);
+    document.getElementById("formTarefa").addEventListener("submit", salvarTarefa);
     
     document.getElementById("btnEditar").addEventListener("click", handleClickEditar);
-    document.getElementById("btnCancelarEditar").addEventListener("click", fecharFormularioEditar);
-    document.getElementById("formEditar").addEventListener("submit", salvarEdicao);
     
 
     document.querySelector("tbody").addEventListener("click", (event) => {
         const tr = event.target.closest("tr");
         if (tr) {
             selecionarTarefa(tr);
+        }
+    });
+
+    document.querySelector("tbody").addEventListener("dblclick", (event) => {
+        const td = event.target.closest("td");
+        if (td && td.cellIndex === 2) { // 2 é o index da coluna "Feita"
+            const tr = td.parentElement;
+            const id = tr.dataset.id;
+            const tarefa = tarefas.find(t => t.id == id);
+            if (tarefa) {
+                tarefa.feita = !tarefa.feita;
+                desenharTarefas(tarefas);
+            }
         }
     });
 });
