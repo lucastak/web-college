@@ -1,0 +1,7 @@
+1) Faça a remoção de uma tarefa, ao clicar em um
+   botão Remover, após selecionar uma linha.
+
+2) Faça a alteração de uma tarefa, ao dar um duplo clique (dblclick) em um
+   na célula correspondente à coluna "Feita", de
+   forma que alterne o atributo da tarefa e
+   atualize visualmente a tarefa na linha correspondente.

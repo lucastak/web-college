@@ -88,7 +88,7 @@ body {
   font-weight: 500;
 }
 
-.card-btn {
+.card button{
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -98,30 +98,26 @@ body {
   font-size: 0.85rem;
   font-weight: 500;
   cursor: pointer;
-  background: #3498db;
   color: #ffffff;
-  transition: background 0.2s ease;
+  transition: filter 0.2s ease;
+}
+
+.card button:hover{
+  filter: brightness(0.9);
+}
+
+.card-btn {
+  background: #3498db;
 }
 
 .card-btn-remover{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: none;
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
   background: #e74c3c;
-  color: #ffffff;
-  transition: background 0.2s ease;
 }
 
-.card-btn:hover {
-  background: #2980b9;
+.card-btn-alterar{
+  background: #2ecc71;
 }
-
+  
 .modal{
   position: fixed;
   top: 0;

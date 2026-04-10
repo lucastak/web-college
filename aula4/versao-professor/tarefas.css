@@ -1,0 +1,8 @@
+.selecionada {
+    background-color: aquamarine;
+}
+
+tbody {
+    cursor: pointer;
+    user-select: none;
+}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESM</title>
+</head>
+<body>
+    <output></output>
+    <script type="module" >
+        import sub, { somar } from './calculadora.js';
+        document.querySelector( 'output' ).innerText =
+            somar( 10, 20 ) + "\n" + sub( 10, 20 );
+    </script>
+</body>
+</html>

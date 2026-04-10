@@ -1,0 +1,4 @@
+Dono do veículo (título)
+Telefone de contato (subtítulo)
+Descrição do carro (corpo)
+Placa do carro (no badge)

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cards lado a lado</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      border-radius: 14px;
+      background: #ffffff;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+      padding: 20px;
+      border: 1px solid #e1e5eb;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin: 0 0 8px 0;
+    }
+
+    .card-subtitle {
+      font-size: 0.9rem;
+      color: #7f8c8d;
+      margin: 0 0 12px 0;
+    }
+
+    .card-body {
+      font-size: 0.95rem;
+      color: #34495e;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .card-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: #ffffff;
+      border-radius: 48px;
+      padding: 5px 10px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      background: #3498db;
+      color: #ffffff;
+      transition: background 0.2s ease;
+    }
+
+    .card-btn:hover {
+      background: #2980b9;
+    }
+  </style>
+
+  <script type="module" src="./src/index.js" defer ></script>
+</head>
+<body>
+  <menu>
+    <button id="adicionar">Adicionar</button>
+  </menu>
+  <dialog>
+    <form>
+      <label for="cliente">Cliente:</label>
+      <input type="text" id="cliente">
+      <label for="telefone">Telefone:</label>
+      <input type="tel" id="telefone" >
+      <label for="descricao">Descrição:</label>
+      <textarea id="descricao"></textarea>
+      <label for="placa">Placa:</label>
+      <input type="text" id="placa" />
+      <button id="salvar">Salvar</button>
+    </form>
+  </dialog>
+  <div class="card-container">
+    <!-- Card 1 -->
+    <div class="card">
+      <h3 class="card-title">Card 1</h3>
+      <p class="card-subtitle">Card simples e limpo</p>
+      <p class="card-body">
+        Este card é estilizado apenas com CSS. Ele se posiciona ao lado de outros e se adapta na tela.
+      </p>
+      <span class="card-badge">CSS</span>
+      <button class="card-btn">Ver mais</button>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <h3 class="card-title">Card 2</h3>
+      <p class="card-subtitle">Card com sombra suave</p>
+      <p class="card-body">
+        Adapta-se responsivamente ao layout, usando CSS Grid para organizar os cards lado a lado.
+      </p><div class=""></div>
+      <span class="card-badge">Grid</span>
+      <button class="card-btn">Ver mais</button>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <h3 class="card-title">Card 3</h3>
+      <p class="card-subtitle">Efeito de hover</p>
+      <p class="card-body">
+        Ao passar o mouse, o card sobe levemente e a sombra aumenta, dando sensação de profundidade.
+      </p>
+      <span class="card-badge">Hover</span>
+      <button class="card-btn">Ver mais</button>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+document.querySelector( 'footer' ).textContent = 'Compre Baton';
