@@ -22,7 +22,7 @@ export function setupAlterar() {
             document.getElementById("modal-titulo").textContent = "Alterar Veículo";
             formCadastro.setAttribute("data-editing-index", index);
 
-            modal.style.display = "flex";
+            modal.showModal();
         }
     });
 
@@ -51,7 +51,7 @@ export function setupAlterar() {
         salvarVeiculos(veiculos);
         listarVeiculos(veiculos);
 
-        modal.style.display = "none";
+        modal.close();
         formCadastro.reset();
         formCadastro.removeAttribute("data-editing-index");
     });

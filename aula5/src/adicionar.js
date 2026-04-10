@@ -10,7 +10,7 @@ export function setupAdicionar() {
         formCadastro.reset();
         formCadastro.removeAttribute("data-editing-index");
         document.getElementById("modal-titulo").textContent = "Cadastrar Veículo";
-        modal.style.display = "flex";
+        modal.showModal();
     });
 
     formCadastro.addEventListener("submit", (e) => {
@@ -39,7 +39,7 @@ export function setupAdicionar() {
         salvarVeiculos(veiculosAtuais);
         listarVeiculos(veiculosAtuais);
 
-        modal.style.display = "none";
+        modal.close();
         formCadastro.reset();
     });
 }

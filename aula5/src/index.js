@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (fecharBtn) {
         fecharBtn.addEventListener("click", () => {
-            modal.style.display = "none";
+            modal.close();
             document.getElementById("form-cadastro").reset();
             document.getElementById("form-cadastro").removeAttribute("data-editing-index");
         });
@@ -28,8 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (modal) {
         modal.addEventListener("click", (e) => {
-            if (e.target === modal) {
-               modal.style.display = "none";
+            const dialogDimensions = modal.getBoundingClientRect();
+            if (
+                e.clientX < dialogDimensions.left ||
+                e.clientX > dialogDimensions.right ||
+                e.clientY < dialogDimensions.top ||
+                e.clientY > dialogDimensions.bottom
+            ) {
+               modal.close();
                document.getElementById("form-cadastro").reset();
                document.getElementById("form-cadastro").removeAttribute("data-editing-index");
             }
