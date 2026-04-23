@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo</title>
+</head>
+<body>
+    <main></main>
+    <script>
+        // EXERCÍCIO:
+        // Crie uma função "criar" que receba o nome de uma tag e
+        // os elementos filhos desejados, quantos o desenvolvedor quiser.
+        // A função deve retornar o objeto do DOM criado, com os filhos.
+        //
+        // Então, use a função para criar os elementos HTML abaixo, no <main>:
+        // <ul>
+        //   <li>Um</li>
+        //   <li>Dois</li>
+        // </ul>
+        // Observação: Strings podem ser adicionadas como filhos.
+
+        // function adicionarElementos( array, ...elementos ) {
+        //     array.push( ...elementos );
+        // }
+        // const a = [];
+        // adicionarElementos( a, 10, 20, 30 );
+        // console.log( a );
+
+        function criar( tag, ...filhos ) {
+            const el = document.createElement( tag );
+            el.append( ...filhos );
+            return el;
+        }
+
+        const main = document.querySelector( 'main' );
+        main.append(
+            criar( 'ul',
+                criar( 'li', 'Um' ),
+                criar( 'li', 'Dois' ),
+            )
+        );
+    </script>
+</body>
+</html>

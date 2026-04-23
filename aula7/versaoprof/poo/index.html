@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="ddd">DDD:</label>
+        <input type="text" id="ddd">
+        <label for="numero">Número:</label>
+        <input type="text" id="numero">
+        <button id="guardar">Guardar</button>
+        <button id="carregar">Carregar</button>
+    </form>
+    <script type="module" >
+        import { Telefone } from './telefone.js';
+        document.getElementById( 'guardar' ).addEventListener( 'click', (event) => {
+            event.preventDefault();
+            const ddd = document.getElementById( 'ddd' ).value;
+            const numero = document.getElementById( 'numero' ).value;
+            const t = new Telefone( ddd, numero );
+            localStorage.setItem( 'telefone', t.formatar() );
+        } );
+
+        document.getElementById( 'carregar' ).addEventListener( 'click', (event) => {
+                event.preventDefault();
+                const tel = localStorage.getItem( 'telefone' );
+                const t = Telefone.criarFormatado( tel );
+
+                document.getElementById( 'ddd' ).value = t.getDdd();
+                document.getElementById( 'numero' ).value = t.getNumero();
+        } );
+    </script>
+</body>
+</html>

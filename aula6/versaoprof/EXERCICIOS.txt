@@ -1,0 +1,16 @@
+EXERCÍCIOS
+----------
+
+1) Adicione à listagem de contas uma pesquisa que mostre as contas que
+   contenham a descrição ou o valor informados. Use a função de array
+   mais apropriada para isso.
+
+2) Adicione uma tela de cadastro de conta, que é aberta ao clicar
+   em um botão "Nova". Uma conta não deve ser cadastrada se outra com
+   mesma descrição já existir. Use a função de array apropriada para
+   fazer a verificação.
+
+3) Crie uma totalização ao fim da listagem, contendo a soma e a média
+   do valor das contas. Utilize forEach para isso.
+
+4) Faça a persistência das contas no localStorage do navegador.
