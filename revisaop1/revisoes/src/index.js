@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const form = document.querySelector("dialog form");
     form.addEventListener("submit", salvarAnimes);
+
+    const 
 })
 
 function carregarAnimes() {
@@ -29,6 +31,10 @@ function salvarAnimes(){
 
     localStorage.setItem("animes", JSON.stringify(animes));
     renderizarAnimes(animes);
+}
+
+removerAnimes(){
+
 }
 
 function renderizarAnimes(animes){
