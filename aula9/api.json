@@ -1,0 +1,23 @@
+{
+  "contas": [
+    {
+      "id": "1",
+      "nome": "pagar parcela do carro",
+      "tipo": "pagar",
+      "valor": 1000
+    },
+    {
+      "nome": "receber salário",
+      "tipo": "receber",
+      "valor": 15000,
+      "id": "2"
+    },
+    {
+      "nome": "Luz",
+      "tipo": "pagar",
+      "valor": 100,
+      "id": "riPo4aT7Dno"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

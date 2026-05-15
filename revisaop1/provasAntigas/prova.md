@@ -12,6 +12,16 @@
 <button type="button" id="salvar">Salvar</button>
 </form>
 
+Implemente o arquivo "cadastro.js" de forma que, quando o botão Salvar for acionado, dados do
+formulário sejam obtidos, validados e, se válidos, salvos em um array de objetos em localStorage, a ser
+mantido na chave "itens". Caso haja algum dado inválido, exibir uma mensagem que detalhe ao usuário o
+problema. As validações devem ser feitas por uma função no arquivo "validacao.js" — a ser criado por
+você —, que deve ser utilizado por "cadastro.js". As seguintes validações devem ocorrer: nome deve ter
+entro 2 e 100 caracteres: a altura não deve ser negativa e ser de no máximo 2,99 metros; o peso não deve
+ser negativo e ser de no máximo 299,9 kg. Após salvar, redirecionar o usuário para "atletas.html",
+modificando o valor de location.url.
+
+
 2) a) [2,0] Considere o contendo do corpo da página "altos.html" abaixo. Utilizando objetos do DOM, sem
 utilizar innerHTML, preencha o corpo da tabela com os dados dos atletas salvos no localStorage, que
 contenham altura superior a 1.90m. Utilize filter() para filtrar os atletas.
@@ -21,14 +31,6 @@ contenham altura superior a 1.90m. Utilize filter() para filtrar os atletas.
 <tbody></tbody>
 <tfoot><tr><td></td><td>0,0</td><td>0,00</td></tr></tfoot>
 </table>
-Implemente o arquivo "cadastro.js" de forma que, quando o botão Salvar for acionado, dados do
-formulário sejam obtidos, validados e, se válidos, salvos em um array de objetos em localStorage, a ser
-mantido na chave "itens". Caso haja algum dado inválido, exibir uma mensagem que detalhe ao usuário o
-problema. As validações devem ser feitas por uma função no arquivo "validacao.js" — a ser criado por
-você —, que deve ser utilizado por "cadastro.js". As seguintes validações devem ocorrer: nome deve ter
-entro 2 e 100 caracteres: a altura não deve ser negativa e ser de no máximo 2,99 metros; o peso não deve
-ser negativo e ser de no máximo 299,9 kg. Após salvar, redirecionar o usuário para "atletas.html",
-modificando o valor de location.url.
 
 B) [1,0] Calcule a média de peso dos atletas e a maior das alturas, então exiba-as no rodapé da tabela, sem
 utilizar innerHTML.

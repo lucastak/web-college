@@ -32,5 +32,5 @@ function renderizarLista() {
         return `<li data-index="${index}">${atleta.nome} possui ${pesoStr} kg e mede ${alturaStr}m.</li>`;
     });
     
-    lista.innerHTML = elementsHTML.join('');
+    lista.appendChild(elementsHTML.join(''))
 }

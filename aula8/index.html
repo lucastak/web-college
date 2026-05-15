@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar CEP</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Buscar Informações de CEP</h1>
+        
+        <form id="formBuscaCep">
+            <div class="form-group">
+                <label for="inputCep">CEP:</label>
+                <input 
+                    type="text" 
+                    id="inputCep" 
+                    placeholder="Digite seu CEP (sem traço ou espaço)"
+                    maxlength="8"
+                    required
+                >
+                <span class="error-message" id="errorMessage"></span>
+            </div>
+            <button type="submit" id="btnBuscar">Buscar</button>
+        </form>
+
+        <div id="resultados" class="resultados-container" style="display: none;">
+            <h2>Informações do CEP</h2>
+            <div id="conteudoResultados"></div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <p>Carregando...</p>
+        </div>
+    </div>
+
+    <script src="./src/buscar-cep.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "aula9",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "json-server api.json",
+    "start": "json-server api.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "json-server": "1.0.0-beta.15"
+  }
+}
