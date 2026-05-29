@@ -1,0 +1,7 @@
+Instalação com package.json já existindo:
+
+pnpm i
+
+Execução do Json-Server:
+
+pnpm run api

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos</title>
+    <script type="module" src="src/index.js" defer ></script>
+    <style>
+        input,select,span {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <menu>
+        <button id="novo">Novo</button>
+    </menu>
+    <h1>Jogos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Nota</th>
+                <th>Gênero</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <template>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button>Remover</button></td>
+        </tr>
+    </template>
+
+    <dialog>
+        <form method="dialog" >
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" minlength="1" maxlength="60" required />
+            <label for="nota">Nota:</label>
+            <input type="range" id="nota" min="1" max="5" value="3"
+                onchange="estrelas.textContent = '⭐'.repeat( nota.value )"
+                /> <span id="estrelas" >⭐⭐⭐</span>
+            <label for="genero">Gênero:</label>
+            <select id="genero" required multiple ></select>
+            <button id="salvar" >Salvar</button>
+            <button id="cancelar" >Cancelar</button>
+        </form>
+    </dialog>
+</body>
+</html>
