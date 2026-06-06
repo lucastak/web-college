@@ -1,0 +1,23 @@
+{
+  "contas": [
+    {
+      "id": "1",
+      "descricao": "Comprar lanche",
+      "tipo": "P",
+      "valor": 20
+    },
+    {
+      "id": "OLgRyQjw3ks",
+      "descricao": "Comprar pão!",
+      "tipo": "P",
+      "valor": 15
+    },
+    {
+      "id": "yB77c8PmFEI",
+      "descricao": "Comprar leite",
+      "tipo": "P",
+      "valor": 8
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

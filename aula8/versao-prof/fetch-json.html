@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div></div>
+        <a href="" ></a>
+        <address></address>
+    </div>
+    <script>
+        fetch( 'contatos.json' )
+            .then( response => {
+                if ( ! response.ok ) {
+                    throw new Error( 'Erro ao obter os contatos.' );
+                }
+                return response.json(); // json() retorna uma Promise!
+            } )
+            .then( contatos => {
+                const [ primeiro ] = contatos;
+                const { nome, tel, end } = primeiro;
+                const div = document.querySelector( 'div' );
+                div.querySelector( 'div' ).textContent = nome;
+                const a = div.querySelector( 'a' );
+                a.href = 'tel:' + tel;
+                a.innerText = tel;
+                div.querySelector( 'address' ).textContent = end;
+            } )
+            .catch( error => alert( error.message ) );
+    </script>
+</body>
+</html>

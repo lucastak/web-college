@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    class Cliente {
+        id = 0;
+        nome = '';
+        telefone = '';
+
+        comId( id ) {
+            this.id = id;
+            return this;
+        }
+
+        comNome( nome ) {
+            this.nome = nome;
+            return this;
+        }
+
+        comTelefone( tel ) {
+            this.telefone = tel;
+            return this;
+        }
+
+        static novo() {
+            return new Cliente();
+        }
+    }
+
+    const c = Cliente.novo()
+        .comId( 10 )
+        .comNome( 'João' )
+        .comTelefone( '999887766' );
+    console.table( c );
+</script>
+</body>
+</html>

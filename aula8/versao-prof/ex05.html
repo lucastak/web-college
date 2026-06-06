@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        function sucesso( position ) {
+            document.querySelector( 'div' ).textContent =
+                position.coords.latitude + ', ' + position.coords.longitude;
+        }
+
+        function erro( error ) {
+            document.querySelector( 'div' ).textContent = error.message;
+        }
+
+        function pedirPosicao() {
+            return new Promise( ( resolve, reject ) => {
+                navigator.geolocation.getCurrentPosition( resolve, reject );
+            } );
+        }
+
+        const promessa = pedirPosicao();
+        promessa.then( sucesso );
+        promessa.catch( erro );
+
+        console.log( 'Boa noite' );
+    </script>
+</body>
+</html>

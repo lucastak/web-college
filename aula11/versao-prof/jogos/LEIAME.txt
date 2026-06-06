@@ -1,0 +1,5 @@
+Instale as dependências rodando:
+pnpm i
+
+Suba o json-server rodando:
+pnpm run api

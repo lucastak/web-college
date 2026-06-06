@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function pedirConsertoParaPolitico() {
+            return new Promise( ( resolve, reject ) => {
+                if ( Math.random() <= 0.5 ) { // [0..1)
+                    resolve( 'Consertei a sua rua.' );
+                    return;
+                }
+                reject( 'Não houve verba esse ano.' );
+            } );
+        }
+
+        const promessa = pedirConsertoParaPolitico();
+        promessa.then( valor => console.log( valor ) );
+        promessa.catch( motivo => console.error( motivo ) );
+
+        console.log( 'Boa noite.' );
+    </script>
+</body>
+</html>

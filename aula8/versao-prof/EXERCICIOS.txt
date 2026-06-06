@@ -1,0 +1,11 @@
+1) Crie um formulário de consulta de CEP que exiba o
+   endereço na tela, ou uma mensagem de erro - caso haja.
+
+Utilize o endereço da API abaixo:
+
+https://viacep.com.br/ws/CEP/json
+
+    em que CEP deve ser um número de CEP sem traços ou espaços.
+
+Observação: Quando um CEP não é encontrado, essa API retorna { erro: true },
+com status 200, em vez de status 404.

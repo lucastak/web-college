@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video autoplay width="720" ></video>
+    <button id="iniciar" >Iniciar</button>
+    <button id="foto" >Foto</button>
+    <canvas hidden width="250" ></canvas>
+    <img src="" alt="Foto" />
+    <script>
+        const video = document.querySelector( 'video' );
+        const canvas = document.querySelector( 'canvas' );
+        const button = document.querySelector( 'button' );
+        const foto = document.querySelector( 'img' );
+
+        button.addEventListener( 'click', () => {
+
+            const restricoes = {
+                video: {
+                    width: { ideal: 1080 },
+                    height: { ideal: 720 },
+                    // facingMode: 'user'
+                }
+            };
+
+            navigator.mediaDevices.getUserMedia( restricoes )
+                .then( media => {
+                    video.srcObject = media;
+                })
+                .catch( error => { alert( error.message ); } );
+        });
+
+        document.querySelector( '#foto' ).addEventListener( 'click',
+            () => {
+                video.hidden = true;
+
+                // Captura imagem
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoWidth;
+                canvas.getContext( '2d' ).drawImage( video, 0, 0 );
+
+                foto.src = canvas.toDataURL( 'image/png' );
+            }
+        )
+
+    </script>
+</body>
+</html>

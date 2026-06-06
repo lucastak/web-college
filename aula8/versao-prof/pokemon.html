@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon</title>
+</head>
+<body>
+    <h1>Pokemon</h1>
+    <form>
+        <label for="pesquisa">Pesquisa:</label>
+        <input type="search" id="pesquisa" />
+        <button>Pesquisar</button>
+    </form>
+    <img src="" alt="Pokemon" width="250" />
+    <script>
+        document.querySelector( 'button' ).addEventListener( 'click', pesquisar );
+        function pesquisar( event ) {
+            event.preventDefault();
+            const nome = document.getElementById( 'pesquisa' ).value;
+            const url = `https://pokeapi.co/api/v2/pokemon/${nome}`;
+            fetch( url )
+                .then( response => {
+                    if ( response.status === 404 ) { // Not Found
+                        throw new Error( 'Pokemon não encontrado.' );
+                    }
+                    if ( ! response.ok ) {
+                        throw new Error( 'Erro ao consultar o pokemon.' );
+                    }
+                    return response.json();
+                } )
+                .then( desenharPokemon )
+                .catch( error => alert( error.message ) );
+        }
+
+        function desenharPokemon( pokemon ) {
+            const url = pokemon.sprites.other['official-artwork'].front_default;
+            const img = document.querySelector( 'img' );
+            img.src = url;
+            img.alt = document.getElementById( 'pesquisa' ).value;
+        }
+    </script>
+</body>
+</html>

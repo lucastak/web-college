@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEP</title>
+</head>
+<body>
+    <h1>CEP</h1>
+    <form>
+        <label for="pesquisa">Pesquisa:</label>
+        <input type="search" id="pesquisa" />
+        <button>Pesquisar</button>
+    </form>
+    <address></address>
+    <script>
+        document.querySelector( 'button' ).addEventListener( 'click', pesquisar );
+        const address = document.querySelector( 'address' );
+
+        function pesquisar( event ) {
+            event.preventDefault();
+            const cep = document.querySelector( '#pesquisa' ).value;
+            fetch( `https://viacep.com.br/ws/${cep}/json` )
+                .then( response => {
+                    if ( response.status === 400 || ! response.ok ) {
+                        throw new Error( 'Erro ao pesquisar o CEP.' );
+                    }
+                    return response.json();
+                })
+                .then( desenharEndereco )
+                .catch( error => address.textContent = error.message + error.name );
+        }
+
+        function desenharEndereco( end ) {
+            if ( end.erro ) {
+                address.textContent = 'CEP não encontrado.';
+                return;
+            }
+            const { logradouro, bairro, localidade, uf } = end;
+            address.textContent = `${logradouro}, ${bairro}, ${localidade}, ${uf}`;
+        }
+    </script>
+</body>
+</html>

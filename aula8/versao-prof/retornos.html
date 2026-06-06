@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        Promise.resolve( 10 )
+            .then( valor => {
+                console.log( valor );
+            } )
+            .catch( motivo => {
+                console.log( 'NUNCA IREI RODAR...' );
+            })
+
+        Promise.reject( 'Deu ruim...' )
+            .then( () => {
+                console.log( 'NUNCA IREI EXECUTAR' );
+            } )
+            .catch( motivo => {
+                console.log( motivo );
+            });
+
+
+        Promise.resolve( 20 )
+            .then( valor => {
+                console.log( valor );
+            } )
+            .then( () => {
+                console.log( 'Rodarei depois do valor ser impresso.' );
+            } );
+
+        // Valor de um then pode ser passado pra outro
+        Promise.resolve( 30 )
+            .then( valor => {
+                return valor + 1;
+            } )
+            .then( novoValor => {
+                return novoValor + 10
+            } )
+            .then( valorFinal => {
+                console.log( valorFinal );
+            })
+
+    </script>
+</body>
+</html>
